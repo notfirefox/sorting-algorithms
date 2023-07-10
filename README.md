@@ -1,6 +1,6 @@
 # Sorting Algorithms
 
-## Merge Sort
+## Mergesort
 WIP
 ```mermaid
   graph TD;
@@ -17,4 +17,7 @@ WIP
 ```
 
 ## Quicksort
+WIP
+
+## Heapsort
 WIP
