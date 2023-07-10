@@ -1,4 +1,5 @@
 #include "mergesort.h"
+#include "quicksort.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -20,9 +21,15 @@ int main(int argc, const char *argv[]) {
   const int size = sizeof(array) / sizeof(int);
 
   print_array(array, size);
+  quicksort(array, 0, size - 1);
+  print_array(array, size);
+
+  /*
+  print_array(array, size);
   int *sorted = mergesort(array, size);
   print_array(sorted, size);
   free(sorted);
+  */
 
   return 0;
 }

@@ -5,5 +5,6 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_executable(main)
 target_sources(main PRIVATE src/main.c
-                            src/mergesort.c)
+                            src/mergesort.c
+                            src/quicksort.c)
 
