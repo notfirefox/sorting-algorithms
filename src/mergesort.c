@@ -34,7 +34,7 @@ int *const merge(const int *const array_1, const int *const array_2,
   return result;
 }
 
-int *const mergesort(int *const array, const int size, bool should_free) {
+int *const _mergesort(int *const array, const int size, bool should_free) {
   if (size <= 1) {
     return array;
   }
@@ -59,8 +59,8 @@ int *const mergesort(int *const array, const int size, bool should_free) {
   }
   memcpy(array_2, array + mid, sizeof(int) * size_2);
 
-  mergesort(array_1, size_1, true);
-  mergesort(array_2, size_2, true);
+  _mergesort(array_1, size_1, true);
+  _mergesort(array_2, size_2, true);
 
   if (should_free) {
     free(array);
@@ -71,4 +71,8 @@ int *const mergesort(int *const array, const int size, bool should_free) {
   free(array_2);
 
   return result;
+}
+
+int *const mergesort(int *const array, const int size) {
+  return _mergesort(array, size, false);
 }

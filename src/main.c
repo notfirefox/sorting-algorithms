@@ -20,7 +20,7 @@ int main(int argc, const char *argv[]) {
   const int size = sizeof(array) / sizeof(int);
 
   print_array(array, size);
-  int *sorted = mergesort(array, size, false);
+  int *sorted = mergesort(array, size);
   print_array(sorted, size);
   free(sorted);
 
