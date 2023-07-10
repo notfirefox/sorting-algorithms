@@ -1,7 +1,5 @@
 #include "quicksort.h"
 
-#include <stdio.h>
-
 static void swap(int *const array, const int i, const int j) {
   int temp = array[i];
   array[i] = array[j];
