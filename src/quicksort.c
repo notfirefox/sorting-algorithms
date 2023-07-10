@@ -1,10 +1,5 @@
 #include "quicksort.h"
-
-static void swap(int *const array, const int i, const int j) {
-  int temp = array[i];
-  array[i] = array[j];
-  array[j] = temp;
-}
+#include "swap.h"
 
 static int partition(int *const array, const int p, const int r) {
   int x = array[r];
