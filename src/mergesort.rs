@@ -1,4 +1,4 @@
-fn merge(vec1: Vec<i32>, vec2: Vec<i32>) -> Vec<i32> {
+fn merge(vec1: &[i32], vec2: &[i32]) -> Vec<i32> {
     let mut result: Vec<i32> = vec![];
 
     let mut index_1 = 0;
@@ -36,18 +36,9 @@ pub fn mergesort(vector: Vec<i32>) -> Vec<i32> {
 
     let mid = vector.len() / 2;
 
-    let mut vec1: Vec<i32> = vec![];
-    for i in 0..mid {
-        vec1.push(vector[i]);
-    }
+    let (left, right) = vector.split_at(mid);
+    let vec1 = mergesort(left.to_vec());
+    let vec2 = mergesort(right.to_vec());
 
-    let mut vec2: Vec<i32> = vec![];
-    for i in mid..vector.len() {
-        vec2.push(vector[i]);
-    }
-
-    vec1 = mergesort(vec1.clone());
-    vec2 = mergesort(vec2.clone());
-
-    merge(vec1, vec2)
+    merge(&vec1, &vec2)
 }
