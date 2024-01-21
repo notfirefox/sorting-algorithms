@@ -12,7 +12,6 @@ fn merge(left: &[i32], right: &[i32]) -> Vec<i32> {
             } else {
                 [vec![*y], merge(left, ys)].concat()
             }
-
         }
     }
 }
