@@ -1,32 +1,20 @@
-fn merge(vec1: &[i32], vec2: &[i32]) -> Vec<i32> {
-    let mut result: Vec<i32> = vec![];
+fn merge(left: &[i32], right: &[i32]) -> Vec<i32> {
+    match (left, right) {
+        ([], []) => [].to_vec(),
+        (_, []) => left.to_vec(),
+        ([], _) => right.to_vec(),
+        (_, _) => {
+            let (x, xs) = left.split_first().expect("Left was empty.");
+            let (y, ys) = right.split_first().expect("Right was empty.");
 
-    let mut index_1 = 0;
-    let mut index_2 = 0;
+            if x < y {
+                [vec![*x], merge(xs, right)].concat()
+            } else {
+                [vec![*y], merge(left, ys)].concat()
+            }
 
-    while index_1 < vec1.len() && index_2 < vec2.len() {
-        if vec1[index_1] <= vec2[index_2] {
-            result.push(vec1[index_1]);
-            index_1 += 1;
-        } else {
-            result.push(vec2[index_2]);
-            index_2 += 1;
         }
     }
-
-    if index_1 < vec1.len() {
-        while index_1 < vec1.len() {
-            result.push(vec1[index_1]);
-            index_1 += 1;
-        }
-    } else if index_2 < vec2.len() {
-        while index_2 < vec2.len() {
-            result.push(vec2[index_2]);
-            index_2 += 1;
-        }
-    }
-    
-    result
 }
 
 pub fn mergesort(vector: Vec<i32>) -> Vec<i32> {

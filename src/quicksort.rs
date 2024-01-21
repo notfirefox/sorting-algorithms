@@ -17,7 +17,6 @@ fn partition(vector: &mut [i32], p: i32, r: i32) -> i32 {
 pub fn quicksort(vector: &mut Vec<i32>, p: i32, r: i32) {
     if p < r {
         let q = partition(vector, p, r);
-        println!("q: {q}" );
         quicksort(vector, p, q - 1);
         quicksort(vector, q + 1, r);
     }
